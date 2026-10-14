@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoldHen Plugins - Modded Games Store</title>
+    <style>
+        :root {
+            --primary: #00ffcc;
+            --secondary: #ff0055;
+            --bg-dark: #0a0b10;
+            --card-bg: rgba(30, 32, 50, 0.4);
+            --border: rgba(255, 255, 255, 0.08);
+            --warning: #ffcc00;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: radial-gradient(circle at top, #1a1c2e 0%, var(--bg-dark) 70%);
+            color: #ffffff;
+            min-height: 100vh;
+        }
+
+        /* نافبار المتجر */
+        header {
+            background: rgba(10, 11, 16, 0.8);
+            backdrop-filter: blur(12px);
+            padding: 15px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-img {
+            width: 45px;
+            height: 45px;
+            object-fit: contain;
+            filter: drop-shadow(0 0 8px var(--primary));
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+            font-weight: 800;
+            background: linear-gradient(45deg, var(--primary), #0077ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px 60px 20px;
+        }
+
+        /* صندوق التحذير */
+        .warning-box {
+            background: rgba(255, 204, 0, 0.1);
+            border: 1px solid var(--warning);
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 35px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            box-shadow: 0 0 15px rgba(255, 204, 0, 0.05);
+        }
+
+        .warning-title {
+            color: var(--warning);
+            font-size: 20px;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .warning-desc {
+            color: #e2e4f0;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        /* شبكة عرض البلاجينز */
+        .plugins-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .plugin-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.3s ease;
+        }
+
+        .plugin-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(0, 255, 204, 0.3);
+            box-shadow: 0 15px 30px rgba(0, 255, 204, 0.08);
+        }
+
+        .plugin-name {
+            font-size: 22px;
+            font-weight: 700;
+            color: #fff;
+            margin: 0 0 10px 0;
+        }
+
+        .plugin-desc {
+            color: #b3b8d4;
+            font-size: 14px;
+            line-height: 1.6;
+            margin: 0 0 20px 0;
+        }
+
+        .btn-download {
+            display: block;
+            text-align: center;
+            background: linear-gradient(90deg, var(--primary), #00b3ff);
+            color: #000;
+            padding: 12px;
+            font-size: 15px;
+            font-weight: 700;
+            border-radius: 10px;
+            text-decoration: none;
+            transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(0, 255, 204, 0.15);
+        }
+
+        .btn-download:hover {
+            box-shadow: 0 0 20px rgba(0, 255, 204, 0.4);
+        }
+
+        /* زر العودة */
+        .btn-back {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+            padding: 12px 35px;
+            text-decoration: none;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .btn-back:hover {
+            background: var(--secondary);
+            border-color: var(--secondary);
+            box-shadow: 0 0 20px rgba(255, 0, 85, 0.4);
+        }
+
+        .center-wrapper {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="brand">
+            <img src="images/logo.png" alt="Logo" class="logo-img">
+            <h1>Modded Games Store</h1>
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <!-- ⚠️ صندوق التحذير والتعليمات المطلوب -->
+        <div class="warning-box">
+            <div class="warning-title">⚠️ تحذير وإرشادات هامة:</div>
+            <div class="warning-desc">
+                يجب تنزيل هذه الملفات (Plugins) إلى <strong>الكمبيوتر أو الهاتف أولاً</strong>، ومن ثم نقلها عبر الفلاش ميموري (USB) أو عبر شبكة FTP إلى مسار الجيلبريك المخصص داخل جهاز الـ PS4 لتفعيل الخصائص الاختيارية.
+            </div>
+        </div>
+
+        <h2 style="font-size: 26px; margin-bottom: 25px; border-right: 4px solid var(--primary); padding-right: 12px;">إضافات الـ Plugins الاختيارية</h2>
+
+        <!-- شبكة الإضافات الجاهزة للتعديل -->
+        <div class="plugins-grid">
+            
+            <!-- إضافة 1: جيت ترافيك -->
+            <div class="plugin-card">
+                <div>
+                    <h3 class="plugin-name">Game Patch Plugin</h3>
+                    <p class="plugin-desc">إضافة ممتازة تتيح لك تفعيل خاصية الـ 60 إطار (60FPS) وتعديل دقة الألعاب مباشرة من داخل النظام.</p>
+                </div>
+                <!-- يمكنك تغيير علامة # برابط ملف الـ .prx مستقبلاً -->
+                <a href="#" class="btn-download">تنزيل البلاجين</a>
+            </div>
+
+            <!-- إضافة 2: الغش داخل الألعاب -->
+            <div class="plugin-card">
+                <div>
+                    <h3 class="plugin-name">GoldHen Cheat Menu</h3>
+                    <p class="plugin-desc">إضافة قائمة الغش الكاملة للتحكم في قيم الألعاب، الحصول على أموال غير محدودة، وتخطي المراحل بسهولة.</p>
+                </div>
+                <a href="#" class="btn-download">تنزيل البلاجين</a>
+            </div>
+
+            <!-- إضافة 3: مراقبة الحرارة -->
+            <div class="plugin-card">
+                <div>
+                    <h3 class="plugin-name">Overlay Temperature</h3>
+                    <p class="plugin-desc">إضافة اختيارية لإظهار درجة حرارة المعالج (CPU/GPU) وسرعة المروحة على الشاشة أثناء اللعب لحماية جهازك.</p>
+                </div>
+                <a href="#" class="btn-download">تنزيل البلاجين</a>
+            </div>
+
+        </div>
+
+        <div class="center-wrapper">
+            <!-- ترجع هذه الصفحة المستخدم إلى صفحة خيارات الـ PS4 -->
+            <a href="ps4-section.html" class="btn-back">رجوع للخلف</a>
+        </div>
+
+    </div>
+
+</body>
+</html>
